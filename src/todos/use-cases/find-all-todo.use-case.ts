@@ -8,12 +8,12 @@ export class FindAllRepository {
         private readonly logger: Logger,
     ) {}
 
-    async AcharTudo(data: FindAllTodosRepository) {
+    async AcharTodo(data: FindAllTodosRepository) {
         try{
             this.logger.log('Puxando ToDos');
-            const todo = await this.FindAllRepository.execute();
+            const todos = await this.FindAllRepository.findAll();
             this.logger.log('itens');
-            return todo;
+            return todos;
         }   catch(error) {
             this.logger.error(error);
             throw new Error('erro');

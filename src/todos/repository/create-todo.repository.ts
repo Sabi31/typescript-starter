@@ -6,7 +6,7 @@ import { PrismaService } from "src/shared/databases/prisma.database";
 export class CreateTodoRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async execute(data: CreateTodoDto) {
+  async createTodo(data: CreateTodoDto) {
     return await this.prisma.todo.create({ data })
   }
 }
