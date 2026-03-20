@@ -4,7 +4,7 @@ import { UpdateTodoDto } from "../dto/update-todo.dto";
 
 
 @Injectable()
-export class updateTodoUseCase {
+export class UpdateTodoUseCase {
     constructor(
         private readonly updateTodoRepository: updateTodoRepository,
         private readonly FindByIdRepository: FindTodoByIdRepository,

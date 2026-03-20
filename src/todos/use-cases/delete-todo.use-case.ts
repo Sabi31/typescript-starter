@@ -10,7 +10,7 @@ export class DeleteteTodoUseCase {
         private readonly logger: Logger,
 ) {}
 
-async execute(id: string) {
+async Deletar(id: string) {
     try {
         this.logger.log('Deleting todo...');
         const todo = await this.findTodoByIdRepository.findById(id);
