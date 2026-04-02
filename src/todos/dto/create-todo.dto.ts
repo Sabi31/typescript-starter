@@ -1,60 +1,49 @@
 
-import { 
-    IsBoolean, 
-    IsEnum, 
-    IsNotEmpty, 
-    IsOptional, 
-    IsString, 
-    IsDateString, 
-    IsUUID, 
-    isNotEmpty,
-    isDateString,
-    isString,
-    isDataURI,
-    IsNegative,
-    IsDate
+import {
+    IsBoolean,
+    IsDateString,
+    IsEnum,
+    IsNotEmpty,
+    IsOptional,
+    IsString,
 } from "class-validator";
-
-
-enum TodoPriority{
-    LOW = ' LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
-}
+import { TodoPrioity } from "@prisma/client";
 
 
 
 export class CreateTodoDto {
-    @IsString( )
+    @IsString()
     title: string;
 
     @IsString()
     @IsOptional()
-    description: string;
+    description?: string;
 
     @IsBoolean()
-    @IsNotEmpty()
-    completed: boolean;
+    @IsOptional()
+    completed?: boolean;
 
-    @IsEnum(TodoPriority)
-    @IsNotEmpty()
-    priority: TodoPriority;
+    @IsEnum(TodoPrioity)
+    @IsOptional()
+    priority?: TodoPrioity;
 
     @IsDateString()
     @IsOptional()
-    dueAt: Date;
+    dueAt?: Date;
 
     @IsDateString()
-    completedAt: Date;
+    @IsOptional()
+    completedAt?: Date;
 
     @IsString()
+    @IsNotEmpty()
     userId: string;
 
     @IsDateString()
-    createdAt: Date;
+    @IsOptional()
+    createdAt?: Date;
 
     @IsDateString()
     @IsOptional()
-    updatedAt: Date;
-    id: string;
+    updatedAt?: Date;
 }
