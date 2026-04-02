@@ -9,7 +9,7 @@ export class updateTodoRepository {
   async update (id: string, data: UpdateTodoDto) {
     return await this.prisma.todo.update({
         where: {id},
-        data
+        data,
     });
   }
 }
